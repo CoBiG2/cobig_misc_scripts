@@ -18,7 +18,6 @@
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 
-import sys
 import csv
 import argparse
 
@@ -80,18 +79,22 @@ def write(dict_seq, output):
     
     with open(output,"w+") as f:
         for k,v in dict_seq.items():
-            f.write(">"+k+"\n"+v+"\n")
+            f.write(k+"\t"+v+"\n")
 
 def main():
     """
-    Argument parser
+    Argument parser and handler
     """
     
+    # Argument parser
+
     parser = argparse.ArgumentParser(description='Converts time series into binary sequences.')
     parser.add_argument('-i', '--input', type=str, required=True, help='Input file.')
     parser.add_argument('-o', '--output', type=str, required=True, help='Output file.')
     parser.add_argument('-n', '--number', type=float, default=0.01, help='Number to divide the distances.')
     args = parser.parse_args()
+
+    # Argument handler
 
     func_convert = convert_csv(args.input)
     func_measure = measure(func_convert, args.number)
