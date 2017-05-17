@@ -74,7 +74,7 @@ def binary(dict_dist):
 
 def write(dict_seq, output):
     """
-    Write the sequences in fasta format.
+    Write the sequences in tsv format.
     """
     
     with open(output,"w+") as f:
