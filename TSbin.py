@@ -64,11 +64,11 @@ def binary(dict_dist):
         song_seq[k] = ""
         for n in range(0,len(dict_dist[k])):
             if n == 0:
-                song_seq[k] += str("1" * int(dict_dist[k][n]))
+                song_seq[k] += str("I " * int(dict_dist[k][n]))
             elif n % 2 == 0:
-                song_seq[k] += str("1" * int(dict_dist[k][n]))
+                song_seq[k] += str("I " * int(dict_dist[k][n]))
             else:
-                song_seq[k] += str("0" * int(dict_dist[k][n]))
+                song_seq[k] += str("O " * int(dict_dist[k][n]))
 
     return song_seq
 
