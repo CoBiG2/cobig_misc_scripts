@@ -2,9 +2,9 @@
 
 Repository for scripts developed and used by CoBiG² members. BEWARE! HERE BE ANTHROPOMORPHIC DRAGONS!
 
-## TSbin 
+## TSseq
 
-This script converts CSV files with time series given by the [autodetec](https://github.com/maRce10/warbleR/blob/master/R/autodetec.R) script into binary sequences. An example CSV file can be found in examples/.
+This script converts CSV files with time series given by the [autodetec](https://github.com/maRce10/warbleR/blob/master/R/autodetec.R) script into sequences. An example CSV file can be found in examples/.
 
 ## FDR.py
 

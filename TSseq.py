@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 
-# TSbin - Convert time series into binary sequences.
+# TSseq - Convert time series into sequences.
 # Copyright (C) 2017 João Baptista <baptista.joao33@gmail.com>
 #
 # This program is free software: you can redistribute it and/or modify
@@ -53,9 +53,9 @@ def measure(dict_ts, number):
     return song_dist
 
 
-def binary(dict_dist):
+def seq(dict_dist):
     """
-    Transforms the time series in "1" and the distances between time series into "0".
+    Transforms the time series in "I" and the distances between time series into "O".
     """
     
     song_seq = {}
@@ -88,7 +88,7 @@ def main():
     
     # Argument parser
 
-    parser = argparse.ArgumentParser(description='Converts time series into binary sequences.')
+    parser = argparse.ArgumentParser(description='Converts time series into sequences.')
     parser.add_argument('-i', '--input', type=str, required=True, help='Input file.')
     parser.add_argument('-o', '--output', type=str, required=True, help='Output file.')
     parser.add_argument('-n', '--number', type=float, default=0.01, help='Number to divide the distances.')
@@ -98,8 +98,8 @@ def main():
 
     func_convert = convert_csv(args.input)
     func_measure = measure(func_convert, args.number)
-    func_binary = binary(func_measure)
-    write(func_binary, args.output)
+    func_seq = seq(func_measure)
+    write(func_seq, args.output)
 
 if __name__ == "__main__":
     main()
