@@ -64,11 +64,11 @@ def seq(dict_dist):
         song_seq[k] = ""
         for n in range(0,len(dict_dist[k])):
             if n == 0:
-                song_seq[k] += str("I " * int(dict_dist[k][n]))
+                song_seq[k] += str("T" * int(dict_dist[k][n]))
             elif n % 2 == 0:
-                song_seq[k] += str("I " * int(dict_dist[k][n]))
+                song_seq[k] += str("T" * int(dict_dist[k][n]))
             else:
-                song_seq[k] += str("O " * int(dict_dist[k][n]))
+                song_seq[k] += str("F" * int(dict_dist[k][n]))
 
     return song_seq
 
@@ -77,9 +77,12 @@ def write(dict_seq, output):
     Write the sequences in tsv format.
     """
     
+    max_len = max([len(x) for x in dict_seq.values()])
     with open(output,"w+") as f:
         for k,v in dict_seq.items():
-            f.write(k+"\t"+v+"\n")
+            padding = "0" * (max_len - len(v))
+            data = "\t".join(list(v + padding))
+            f.write(k + "\t" + data + "\n")
 
 def main():
     """
